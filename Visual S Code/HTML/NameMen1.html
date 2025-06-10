@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>King Robot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .robot {
+      margin: 50px auto;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      width: 300px;
+      background-color: #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .robot img {
+      width: 100px;
+    }
+    .robot button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .robot button:hover {
+      background-color: #2dff37;
+    }
+  </style>
+</head>
+<body>
+  <div class="robot">
+    <img src="https://via.placeholder.com/100?text=Robot" alt="Robot">
+    <h1>Hello! I'm king robot.</h1>
+    <button onclick="talk()">Press Me to Talk</button>
+  </div>
+
+  <script>
+    function talk() {
+      const robotMessage = "Hello! How can I assist you today?";
+      const utterance = new SpeechSynthesisUtterance(robotMessage);
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>

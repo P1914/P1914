@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Qualification Checker</title>
+    <script>
+        function checkQualification() {
+            var age = document.getElementById("ageInput").value;
+            var message = document.getElementById("qualificationMessage");
+
+            if (age >= 18) {
+                message.innerHTML = "You are qualified for Driving";
+            } else if (age<=17) {
+                message.innerHTML = "You are not qualified for Driving";
+            }
+            if(age<=10) {
+                message.innerHTML = "No";
+            }
+            if(age<=20) {
+                message.innerHTML = "Good";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>IF Statement</h1>
+    <input type="number" id="ageInput" value="18">
+    <button onclick="checkQualification()">Check Qualify</button>
+    <p id="qualificationMessage"></p>
+</body>
+</html>

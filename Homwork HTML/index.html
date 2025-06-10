@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <title>ហាងលក់សៀវភៅ</title>
+  <style>
+    body {
+      font-family: 'Khmer OS', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    header, footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+    }
+    nav {
+      background-color: #0056b3;
+      text-align: center;
+      padding: 1em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      width: 250px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: left;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+    .product h3 {
+      color: #dc3545;
+    }
+    .buy-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    /* Overlay popup style */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup {
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .popup h3 {
+      margin-top: 0;
+    }
+    .popup input, .popup textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Khmer OS', Arial;
+    }
+    .popup button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .close-btn {
+      background-color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ហាងលក់សៀវភៅ និងសម្ភារៈសិក្សា</h1>
+</header>
+
+<nav>
+  <a href="index.html">ទំព័រដើម</a>
+  <a href="about.html">អំពីពួកយើង</a>
+  <a href="contact.html">ទំនាក់ទំនង</a>
+</nav>
+
+<h2 style="text-align:center; color:#007bff;">ផលិតផលលក់ដាច់<br><u>( កំពុងមានក្នុងស្តុក )</u></h2>
+
+<div class="container">
+  <div class="product">
+    <img src="../img/R.jpg" alt="សៀវភៅគណិតវិទ្យា">
+    <h3>សៀវភៅគណិតវិទ្យា</h3>
+    <p>- តម្លៃ: 80,000 រៀល</p>
+    <p>- មាតិកាស្រួលយល់</p>
+    <p>- មានលំហាត់អនុវត្តន៏ជាច្រើន</p>
+    <button class="buy-button" onclick="openPopup('សៀវភៅគណិតវិទ្យា')">ទិញឥឡូវនេះ</button>
+  </div>
+  <div class="product">
+    <img src="../img/Bog.webp" alt="សៀវភៅ HTML & CSS">
+    <h3>សៀវភៅ HTML & CSS</h3>
+    <p>- តម្លៃ: 20,000 រៀល</p>
+    <p>- សម្រាប់អ្នកចាប់ផ្តើមសរសេរ Web</p>
+    <button class="buy-button" onclick="openPopup('សៀវភៅ HTML & CSS')">ទិញឥឡូវនេះ</button>
+  </div>
+  <div class="product">
+    <img src="../img/OIeP.jpg" alt="សៀវភៅ Java">
+    <h3>សៀវភៅ Java</h3>
+    <p>- តម្លៃ: 60,000 រៀល</p>
+    <p>- មានលំហាត់ & គន្លឹះ</p>
+    <button class="buy-button" onclick="openPopup('សៀវភៅ Java')">ទិញឥឡូវនេះ</button>
+  </div>
+  <div class="product">
+    <img src="../img/C++.jpg" alt="សៀវភៅ C++">
+    <h3>សៀវភៅ C++</h3>
+    <p>- តម្លៃ: 60,000 រៀល</p>
+    <p>- សម្រាប់អ្នកចាប់ផ្តើម និងមានការបង្រៀនលម្អិត</p>
+    <button class="buy-button" onclick="openPopup('សៀវភៅ C++')">ទិញឥឡូវនេះ</button>
+  </div>
+</div>
+
+<!-- Popup -->
+<div class="overlay" id="popupOverlay">
+  <div class="popup">
+    <h3>💸 ព័ត៌មានការទិញ</h3>
+    <p id="selectedBook"></p>
+
+    <!-- QR Code ផ្នែកបង់លុយ -->
+    <div style="text-align:center; margin-bottom: 15px;">
+      <p>ស្កេន QR នេះដើម្បីបង់លុយ</p>
+      <img id="731 483 24 | KHR" src="../img/QR1.png" alt="QR Code" style="width:180px; height:180px; border:1px solid #ccc; border-radius: 10px;">
+    </div>
+
+    <input type="text" placeholder="👤 ឈ្មោះ" id="name">
+    <input type="tel" placeholder="📞 លេខទូរស័ព្ទ" id="phone">
+    <textarea placeholder="📍 ទីតាំងដឹកជញ្ជូន" id="location"></textarea>
+    <button onclick="submitOrder()">បញ្ជាក់ការទិញ</button>
+    <button class="close-btn" onclick="closePopup()">បិទ</button>
+  </div>
+</div>
+
+<footer>
+  <p>រក្សាសិទ្ធិ &copy; 2025 ហាងលក់សៀវភៅ</p>
+</footer>
+
+<script>
+  function openPopup(bookName) {
+    document.getElementById('popupOverlay').style.display = 'flex';
+    document.getElementById('selectedBook').textContent = "សៀវភៅ: " + bookName;
+
+    // បង្កើត URL QR Code សម្រាប់បង់លុយ
+    let paymentInfo = "";
+    switch(bookName) {
+      case 'សៀវភៅគណិតវិទ្យា':
+        paymentInfo = "https://payment.example.com/pay?book=math&price=80000";
+        break;
+      case 'សៀវភៅ HTML & CSS':
+        paymentInfo = "https://payment.example.com/pay?book=htmlcss&price=20000";
+        break;
+      case 'សៀវភៅ Java':
+        paymentInfo = "https://payment.example.com/pay?book=java&price=60000";
+        break;
+      case 'សៀវភៅ C++':
+        paymentInfo = "https://payment.example.com/pay?book=cpp&price=60000";
+        break;
+      default:
+        paymentInfo = "https://payment.example.com";
+    }
+
+    // បង្កើត QR Code
+    const qrUrl = `https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=${encodeURIComponent(paymentInfo)}`;
+    document.getElementById('qrCodeImg').src = qrUrl;
+  }
+
+  function closePopup() {
+    document.getElementById('popupOverlay').style.display = 'none';
+  }
+
+  function submitOrder() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const location = document.getElementById('location').value;
+
+    if (!name || !phone || !location) {
+      alert("សូមបំពេញព័ត៌មានឲ្យគ្រប់គ្រាន់!");
+    } else {
+      alert("✅ ការបញ្ជាទិញបានបញ្ចប់!\nឈ្មោះ: " + name + "\nលេខ: " + phone + "\nទីតាំង: " + location);
+      closePopup();
+    }
+  }
+</script>
+
+<script>
+  const TELEGRAM_BOT_TOKEN = "7574494382:AAFZhFrO4wRPHJdYw0gk7o3ba4iwhu5eA8c";
+  const TELEGRAM_CHAT_ID = "1597785838";
+
+  function openPopup(bookName) {
+    document.getElementById('popupOverlay').style.display = 'flex';
+    document.getElementById('selectedBook').textContent = "សៀវភៅ: " + bookName;
+  }
+
+  function closePopup() {
+    document.getElementById('popupOverlay').style.display = 'none';
+  }
+
+  function submitOrder() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const location = document.getElementById('location').value.trim();
+    const book = document.getElementById('selectedBook').textContent;
+
+    if (!name || !phone || !location) {
+      alert("សូមបំពេញព័ត៌មានឲ្យគ្រប់គ្រាន់!");
+      return;
+    }
+
+    const message = `📚 ការបញ្ជាទិញថ្មី\n${book}\n👤 ឈ្មោះ: ${name}\n📞 លេខទូរស័ព្ទ: ${phone}\n📍 ទីតាំង: ${location}`;
+
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("✅ ការបញ្ជាទិញបានផ្ញើទៅ Telegram!");
+        closePopup();
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('location').value = '';
+      } else {
+        alert("❌ មិនអាចផ្ញើបានទេ។ សូមពិនិត្យ Token ឬ Chat ID");
+      }
+    })
+    .catch(error => {
+      alert("⚠ មានបញ្ហា! សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិត");
+      console.error(error);
+    });
+  }
+</script>
+
+</body>
+</html>

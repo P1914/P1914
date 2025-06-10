@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rean Code</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script type="text/javascript">
+        const output= document.getElementById(`output`);
+         let day;
+        const date = new Date();
+        switch(date.getDay()){
+            case 1:
+                day ="Monday";
+                break;
+            case 2:
+                day ="Tuesday";
+            break;
+        default:
+            day ="other Day";
+
+        }
+        output.innerHTML = `Today is : ${day}! ${date.getUTCFullYear()}`;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            text-align: center;
+            color: #343a40;
+        }
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .settings-header span {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .settings-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+        .settings-panel {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .settings-panel label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-header">
+        <h2 id="title">Employee Management</h2>
+        <span onclick="toggleSettings()">⚙️ Settings</span>
+    </div>
+    
+    <div class="settings-overlay" id="settingsOverlay" onclick="toggleSettings()"></div>
+    <div class="settings-panel" id="settingsPanel">
+        <h3>Page Settings</h3>
+        <label for="language">Region & Language:</label>
+        <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="km">ភាសាខ្មែរ</option>
+        </select>
+        <br>
+        <label for="showContent">Show Content:</label>
+        <input type="checkbox" id="showContent" checked onchange="toggleContent()">
+        <br>
+        <label for="theme">Appearance:</label>
+        <select id="theme" onchange="changeTheme()">
+            <option value="system">System Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+        <br>
+        <label for="backgroundImage">Choose Background Image:</label>
+        <input type="file" id="backgroundImage" accept="image/*" onchange="changeBackgroundImage()">
+    </div>
+    
+    <div class="container" id="content">
+        <table>
+            <thead>
+                <tr>
+                    <th id="idHeader">ID</th>
+                    <th id="nameHeader">Name</th>
+                    <th id="positionHeader">Position</th>
+                    <th id="actionHeader">Action</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTable">
+            </tbody>
+        </table>
+        
+        <h3 id="addEmployeeTitle">Add Employee</h3>
+        <div class="input-group">
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="position" placeholder="Position">
+            <button onclick="addEmployee()" id="addButton">Add</button>
+        </div>
+    </div>
+    
+    <script>
+        function toggleSettings() {
+            let panel = document.getElementById("settingsPanel");
+            let overlay = document.getElementById("settingsOverlay");
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+                overlay.style.display = "none";
+            } else {
+                panel.style.display = "block";
+                overlay.style.display = "block";
+            }
+        }
+        function changeBackgroundImage() {
+            let file = document.getElementById("backgroundImage").files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    document.body.style.backgroundImage = `url(${e.target.result})`;
+                    document.body.style.backgroundSize = "cover";
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        function addEmployee() {
+            let name = document.getElementById("name").value;
+            let position = document.getElementById("position").value;
+            if (name && position) {
+                let table = document.getElementById("employeeTable");
+                let row = table.insertRow();
+                row.insertCell(0).innerText = table.rows.length;
+                row.insertCell(1).innerText = name;
+                row.insertCell(2).innerText = position;
+                let deleteCell = row.insertCell(3);
+                let deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.onclick = function () {
+                    table.deleteRow(row.rowIndex - 1);
+                };
+                deleteCell.appendChild(deleteButton);
+                document.getElementById("name").value = "";
+                document.getElementById("position").value = "";
+            } else {
+                alert("Please enter both name and position.");
+            }
+        }
+        function changeLanguage() {
+            let lang = document.getElementById("language").value;
+            let translations = {
+                en: { title: "Employee Management", add: "Add Employee", name: "Name", position: "Position", action: "Action" },
+                km: { title: "ការគ្រប់គ្រងនិយោជិត", add: "បន្ថែមនិយោជិត", name: "ឈ្មោះ", position: "មុខតំណែង", action: "សកម្មភាព" }
+            };
+            document.getElementById("title").innerText = translations[lang].title;
+            document.getElementById("addEmployeeTitle").innerText = translations[lang].add;
+            document.getElementById("nameHeader").innerText = translations[lang].name;
+            document.getElementById("positionHeader").innerText = translations[lang].position;
+            document.getElementById("actionHeader").innerText = translations[lang].action;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <H1>HondaDream</H1>
+</head>
+<body>
+    <script>
+        const output = document.getElementById("output");
+        function motobike (pName, pModel, pYear){
+            this.name = pName;
+            this.model =pModel;
+            this.year =pYear;
+        }
+        let hondaDream = new motobike ("Honda", "Dream", "2024");
+        let result = "Hello World";
+        output.innerHTML = result + "<br/>";
+        output.innerHTML += hondaDream.name +" "+
+                            hondaDream.model +" "+
+                            hondaDream.year;
+    </script>
+</body>
+</html>

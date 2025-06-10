@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information Form</title>
+</head>
+<body>
+    <h2>Personal Information Form</h2>
+    <form action="process_form.php" method="get">
+        <!-- Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Sex -->
+        <label for="sex">Sex:</label>
+        <input type="radio" id="male" name="sex" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="Female" required>
+        <label for="female">Female</label><br><br>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <!-- Place of Birth -->
+        <label for="pob">Place of Birth:</label>
+        <input type="text" id="pob" name="pob" required><br><br>
+
+        <!-- Skill -->
+        <label for="skill">Skill:</label>
+        <select id="skill" name="skill" required>
+            <option value="Programming">Programming</option>
+            <option value="Designing">Designing</option>
+            <option value="Writing">Writing</option>
+            <option value="Photography">Photography</option>
+        </select><br><br>
+
+        <!-- Interest -->
+        <label for="interest">Interest:</label>
+        <input type="text" id="interest" name="interest" required><br><br>
+
+        <!-- Hobby -->
+        <label for="hobby">Hobby:</label>
+        <textarea id="hobby" name="hobby" rows="4" cols="50" required></textarea><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

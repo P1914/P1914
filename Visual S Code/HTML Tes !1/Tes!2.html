@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ស្វែងរកឆ្លើយសំណួរ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question-box {
+            margin-bottom: 20px;
+        }
+        .question-box label {
+            font-size: 18px;
+            color: #333;
+        }
+        .question-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .answer-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .answer-box p {
+            font-size: 18px;
+            color: #333;
+        }
+        .answer-box button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer-box button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ស្វែងរកឆ្លើយសំណួរ</h1>
+        <div class="question-box">
+            <label for="question">សូមសួរពីអ្វី?</label>
+            <input type="text" id="question" placeholder="សូមបញ្ចូលសំណួររបស់អ្នក">
+        </div>
+        <div class="answer-box">
+            <button onclick="answerQuestion()">ឆ្លើយ</button>
+            <p id="answer">សូមបញ្ចូលសំណួរដើម្បីទទួលឆ្លើយតប។</p>
+        </div>
+    </div>
+
+    <script>
+        function answerQuestion() {
+            const questionInput = document.getElementById('question');
+            const answerOutput = document.getElementById('answer');
+            const question = questionInput.value.trim().toLowerCase();
+            
+            if (question) {
+                // Basic responses based on input
+                if (question.includes('ហេីយ') || question.includes('ជំរាបសួរ')) {
+                    answerOutput.textContent = 'ជំរាបសួរ! តើខ្ញុំអាចជួយអ្នកបានដូចម្តេច?';
+                } else if (question.includes('សុខសប្បាយ')) {
+                    answerOutput.textContent = 'ខ្ញុំសុខសប្បាយណាស់! អរគុណសម្រាប់ការសួរពីខ្ញុំ។';
+                } else {
+                    answerOutput.textContent = 'សំណួររបស់អ្នកគួរឱ្យចាប់អារម្មណ៍! ខ្ញុំកំពុងពិនិត្យវា។';
+                }
+            } else {
+                answerOutput.textContent = 'សូមបញ្ចូលសំណួរដើម្បីទទួលឆ្លើយតប។';
+            }
+        }
+    </script>
+</body>
+</html>

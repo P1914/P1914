@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Form</title>
+    <script type="text/javascript">
+        // Function to calculate the total price
+        function calculateTotal() {
+            var quantity = document.getElementById('quantity').value;
+            var price = document.getElementById('price').value;
+            var total = quantity * price;
+
+            // Display the total price
+            document.getElementById('total').value = total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h2>Invoice Form</h2>
+    <form action="H11.php" method="get">
+        <!-- Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Description -->
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br><br>
+
+        <!-- Quantity -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <!-- Price -->
+        <label for="price">Price (per unit):</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <!-- Calculate Button -->
+        <button type="button" onclick="calculateTotal()">Calculate</button><br><br>
+
+        <!-- Total -->
+        <label for="total">Total Price:</label>
+        <input type="text" id="total" name="total" readonly><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit Invoice">
+    </form>
+</body>
+</html>

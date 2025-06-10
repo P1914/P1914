@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talking Robot</title>
+    <style>
+        #robot {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #startButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="robot">🤖</div>
+    <button id="startButton">Start</button>
+
+    <script>
+        // Check if the browser supports the Web Speech API
+        if ('speechSynthesis' in window) {
+            const startButton = document.getElementById('startButton');
+            const robot = document.getElementById('robot');
+            const utterance = new SpeechSynthesisUtterance('Hello! I am your talking robot. How can I assist you today?');
+
+            startButton.addEventListener('click', () => {
+                // Change robot color to indicate speaking
+                robot.style.color = 'green';
+                window.speechSynthesis.speak(utterance);
+            });
+
+            // Reset robot color after speaking
+            utterance.onend = () => {
+                robot.style.color = 'black';
+            };
+        } else {
+            alert('Sorry, your browser does not support speech synthesis.');
+        }
+    </script>
+</body>
+</html>

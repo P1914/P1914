@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <title>ទំនាក់ទំនង | ហាងលក់សៀវភៅ</title>
+    <style>
+        body {
+            font-family: 'Khmer OS', Arial, sans-serif;
+            margin: 0; padding: 0;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+        }
+        nav {
+            background-color: #0056b3;
+            text-align: center;
+            padding: 1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+        section {
+            padding: 40px 20px;
+        }
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ទំនាក់ទំនង</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">ទំព័រដើម</a>
+        <a href="about.html">អំពីពួកយើង</a>
+        <a href="contact.html">ទំនាក់ទំនង</a>
+    </nav>
+
+    <section>
+        <h2 style="color: #007bff;">ទំនាក់ទំនង</h2>
+        <ul style="font-size: 16px;">
+            <li>📞 លេខទូរស័ព្ទ៖ 0964294915</li>
+            <li>📧 អ៊ីមែល៖ Phalla1914@gmail.com</li>
+            <li>📍 អាសយដ្ឋាន៖ ភ្នំពេញ, កម្ពុជា</li>
+            <li>🌐 Facebook: <a href="https://web.facebook.com/index.php?_rdc=1&_rdr">https://web.facebook.com/index.php?_rdc=1&_rdr</a></li>
+        </ul>
+        <form id="contactForm" style="margin-top: 20px;">
+    <label>ឈ្មោះ:</label><br>
+    <input type="text" id="name" style="width: 100%; padding: 8px;"><br><br>
+
+    <label>អ៊ីមែល:</label><br>
+    <input type="email" id="email" style="width: 100%; padding: 8px;"><br><br>
+
+    <label>លេខទូរស័ព្ទ:</label><br>
+    <input type="tel" id="phone" style="width: 100%; padding: 8px;" placeholder="លេខទូរស័ព្ទរបស់អ្នក"><br><br>
+
+    <label>សារ:</label><br>
+    <textarea id="message" style="width: 100%; padding: 10px;" rows="5"></textarea><br><br>
+
+    <button type="submit" class="buy-button">ផ្ញើសារ</button>
+</form>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const token = "7574494382:AAFZhFrO4wRPHJdYw0gk7o3ba4iwhu5eA8c"; // Bot Token
+    const chat_id = "1597785838"; // Chat ID
+
+    const text = `📥 សារថ្មីពី Website:\n👤 ឈ្មោះ: ${name}\n📧 អ៊ីមែល: ${email}\n💬 សារ: ${message}`;
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        chat_id: chat_id,
+        text: text
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("✅ សារបានផ្ញើទៅ Telegram រួចរាល់!");
+        document.getElementById("contactForm").reset();
+      } else {
+        alert("❌ មិនអាចផ្ញើសារបានទេ!");
+      }
+    })
+    .catch(error => {
+      alert("⚠️ មានបញ្ហា៖ " + error);
+    });
+  });
+</script>
+
+    </section>
+
+    <footer>
+        <p>រក្សាសិទ្ធិ &copy; 2025 ហាងលក់សៀវភៅ</p>
+    </footer>
+
+</body>
+</html>

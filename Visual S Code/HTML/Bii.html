@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Loop</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script type="text/javascript">
+        const output =document.getElementById('output');
+        var count =1;
+        output.innerHTML ="Start Loop <br />"
+        while(count <=10){
+            output.innerHTML +=`count: ${count}<br />`;
+            count++;
+        }
+        output.innerHTML += "Stop Loop";
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .bank-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .bank-container h2 {
+            margin-bottom: 20px;
+        }
+        .bank-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .bank-container input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .bank-container button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .bank-container button:hover {
+            background-color: #0056b3;
+        }
+        .balance {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bank-container">
+        <h2>Bank Program</h2>
+        <form id="bank-form">
+            <input type="number" id="amount" placeholder="Enter amount" required>
+            <button type="button" onclick="deposit()">Deposit</button>
+            <button type="button" onclick="withdraw()">ចម្លើយ</button>
+        </form>
+        <div class="balance">
+            <h3>Balance: $<span id="balance">0</span></h3>
+        </div>
+    </div>
+
+    <script>
+        let balance = 0;
+
+        function updateBalance() {
+            document.getElementById('balance').innerText = balance.toFixed(2);
+        }
+
+        function deposit() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            if (amount > 0) {
+                balance += amount;
+                updateBalance();
+            } else {
+                alert('Please enter a valid amount.');
+            }
+            document.getElementById('amount').value = '';
+        }
+
+        function withdraw() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                updateBalance();
+            } else {
+                alert('Please enter a valid amount or insufficient balance.');
+            }
+            document.getElementById('amount').value = '';
+        }
+
+        updateBalance();
+    </script>
+</body>
+</html>

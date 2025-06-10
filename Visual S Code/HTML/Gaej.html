@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script type="text/javascript">
+        const output = document.getElementById('output');
+        let car ={
+            brand: "OD",
+            model: "Q7",
+            color: "Black",
+        }
+        output.innerHTML = car["brand"] +"<br />";
+        for(key in car){
+            output.innerHTML +=`${key} => ${car[key]}<br />`;
+        }
+        </script>
+</html>

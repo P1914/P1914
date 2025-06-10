@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Form - Drink List</title>
+</head>
+<body>
+    <h2>Invoice Form for Drinks</h2>
+    <form action="hut.php" method="POST">
+        <!-- Invoice Number -->
+        <label for="invoiceNum">N:</label>
+        <input type="text" id="invoiceNum" name="invoiceNum" required><br><br>
+
+        <!-- Drink Selection -->
+        <label for="description">Select Drink:</label>
+        <select id="description" name="description" required>
+            <option value="" disabled selected>-- Choose a drink --</option>
+            <!-- List of 100 drinks -->
+            <option value="Water">Water</option>
+            <option value="Sparkling Water">Sparkling Water</option>
+            <option value="Coca-Cola">Coca-Cola</option>
+            <option value="Pepsi">Pepsi</option>
+            <option value="Sprite">Sprite</option>
+            <option value="Fanta">Fanta</option>
+            <option value="Mountain Dew">Mountain Dew</option>
+            <option value="7 Up">7 Up</option>
+            <option value="Root Beer">Root Beer</option>
+            <option value="Dr Pepper">Dr Pepper</option>
+            <option value="Ginger Ale">Ginger Ale</option>
+            <option value="Red Bull">Red Bull</option>
+            <option value="Monster Energy">Monster Energy</option>
+            <option value="Gatorade">Gatorade</option>
+            <option value="Powerade">Powerade</option>
+            <option value="Orange Juice">Orange Juice</option>
+            <option value="Apple Juice">Apple Juice</option>
+            <option value="Grape Juice">Grape Juice</option>
+            <option value="Lemonade">Lemonade</option>
+            <option value="Iced Tea">Iced Tea</option>
+            <option value="Green Tea">Green Tea</option>
+            <option value="Black Tea">Black Tea</option>
+            <option value="Herbal Tea">Herbal Tea</option>
+            <option value="Milk">Milk</option>
+            <option value="Chocolate Milk">Chocolate Milk</option>
+            <option value="Strawberry Milk">Strawberry Milk</option>
+            <option value="Coffee">Coffee</option>
+            <option value="Espresso">Espresso</option>
+            <option value="Cappuccino">Cappuccino</option>
+            <option value="Latte">Latte</option>
+            <option value="Mocha">Mocha</option>
+            <option value="Hot Chocolate">Hot Chocolate</option>
+            <option value="Smoothie">Smoothie</option>
+            <option value="Protein Shake">Protein Shake</option>
+            <option value="Milkshake">Milkshake</option>
+            <option value="Banana Smoothie">Banana Smoothie</option>
+            <option value="Berry Smoothie">Berry Smoothie</option>
+            <option value="Mango Juice">Mango Juice</option>
+            <option value="Pineapple Juice">Pineapple Juice</option>
+            <option value="Tomato Juice">Tomato Juice</option>
+            <option value="Carrot Juice">Carrot Juice</option>
+            <option value="Coconut Water">Coconut Water</option>
+            <option value="Soy Milk">Soy Milk</option>
+            <option value="Almond Milk">Almond Milk</option>
+            <option value="Rice Milk">Rice Milk</option>
+            <option value="Beer">Beer</option>
+            <option value="Wine">Wine</option>
+            <option value="Champagne">Champagne</option>
+            <option value="Whiskey">Whiskey</option>
+            <option value="Vodka">Vodka</option>
+            <option value="Rum">Rum</option>
+            <option value="Tequila">Tequila</option>
+            <option value="Brandy">Brandy</option>
+            <option value="Gin">Gin</option>
+            <option value="Sangria">Sangria</option>
+            <option value="Cider">Cider</option>
+            <option value="Lassi">Lassi</option>
+            <option value="Buttermilk">Buttermilk</option>
+            <option value="Yakult">Yakult</option>
+            <option value="Kombucha">Kombucha</option>
+            <option value="Boba Tea">Boba Tea</option>
+            <option value="Thai Tea">Thai Tea</option>
+            <option value="Turmeric Latte">Turmeric Latte</option>
+            <option value="Matcha Latte">Matcha Latte</option>
+            <option value="Iced Coffee">Iced Coffee</option>
+            <option value="Nitro Cold Brew">Nitro Cold Brew</option>
+            <option value="Cola Float">Cola Float</option>
+            <option value="Root Beer Float">Root Beer Float</option>
+            <option value="Ginger Beer">Ginger Beer</option>
+            <option value="Energy Drink">Energy Drink</option>
+            <option value="Cranberry Juice">Cranberry Juice</option>
+            <option value="Pomegranate Juice">Pomegranate Juice</option>
+            <option value="Kefir">Kefir</option>
+            <option value="Soya Drink">Soya Drink</option>
+            <option value="Mojito (Non-alcoholic)">Mojito</option>
+            <option value="Virgin Colada">Virgin Colada</option>
+            <option value="Frozen Margarita">Frozen Margarita</option>
+            <option value="Caramel Macchiato">Caramel Macchiato</option>
+            <option value="Affogato">Affogato</option>
+            <option value="Butter Coffee">Butter Coffee</option>
+            <option value="Hot Toddy">Hot Toddy</option>
+            <option value="Horchata">Horchata</option>
+            <option value="Soda Water">Soda Water</option>
+            <option value="Tonic Water">Tonic Water</option>
+            <option value="Arnold Palmer">Arnold Palmer</option>
+            <option value="Lime Soda">Lime Soda</option>
+            <option value="Ginger Tea">Ginger Tea</option>
+            <option value="Chai Latte">Chai Latte</option>
+            <option value="Frappe">Frappe</option>
+            <option value="Cucumber Juice">Cucumber Juice</option>
+            <option value="Lemon Iced Tea">Lemon Iced Tea</option>
+            <option value="Barley Water">Barley Water</option>
+            <option value="Beet Juice">Beet Juice</option>
+            <option value="Agua Fresca">Agua Fresca</option>
+            <option value="Tamarind Juice">Tamarind Juice</option>
+        </select><br><br>
+
+        <!-- Quantity -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+        <!-- Price -->
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" min="0" step="0.01" required><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Generate Invoice">
+    </form>
+</body>
+</html>

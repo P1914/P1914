@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art Animation</title>
+  <canvas style="width:100%;height:100%;background:transparent" width="548" height="1038"></canvas>
+  <style>
+    body {
+      background-color: black;
+      color: green;
+      font-family: monospace;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ascii-art {
+      white-space: pre;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ascii-art">
+    <pre>
+    //.នៅទីនេះ
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    ........   ....  .................   ...........  ............    ......
+    ............. ..............  ............. ................. ..........
+    </pre>
+  </div>
+</body>
+</html>

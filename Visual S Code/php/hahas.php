@@ -1,0 +1,9 @@
+<?php
+$math=40;
+    $phy=50;
+    $che=60;
+    $englis=50;
+    $total=$math+$phy+$che+$englis;
+    $everage=$total;
+    if($everage>=100);{
+    echo('past');}

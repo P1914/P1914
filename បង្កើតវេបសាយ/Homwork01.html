@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <title>ហាងលក់សៀវភៅ</title>
+    <style>
+        body {
+            font-family: 'Khmer OS', Arial, sans-serif;
+            margin: 0; padding: 0;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+        }
+        nav {
+            background-color: #0056b3;
+            text-align: center;
+            padding: 1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+        section {
+            padding: 40px 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .product {
+            width: 250px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .product h3 {
+            color: #dc3545;
+        }
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ហាងលក់សៀវភៅ និងសម្ភារៈសិក្សា</h1>
+    </header>
+
+    <nav>
+        <a href="#home">ទំព័រដើម</a>
+        <a href="#about">អំពីពួកយើង</a>
+        <a href="#contact">ទំនាក់ទំនង</a>
+    </nav>
+
+    <!-- HOME Section -->
+    <section id="home">
+        <h2 style="text-align:center; color:#007bff;">ផលិតផលលក់ដាច់</h2>
+        <div class="container">
+            <div class="product">
+                <img src="../img/R.jpg" alt="សៀវភៅគណិតវិទ្យា">
+                <h3>សៀវភៅគណិតវិទ្យា</h3>
+                <p>- តម្លៃ: 80,000 រៀល</p>
+                <p>- មាតិកាស្រួលយល់</p>
+                <button class="buy-button">ទិញឥឡូវនេះ</button>
+            </div>
+            <div class="product">
+                <img src="../img/Bog.webp" alt="សៀវភៅ HTML & CSS">
+                <h3>សៀវភៅ HTML & CSS</h3>
+                <p>- តម្លៃ: 20,000 រៀល</p>
+                <p>- សម្រាប់អ្នកចាប់ផ្តើមសរសេរ Web</p>
+                <button class="buy-button">ទិញឥឡូវនេះ</button>
+            </div>
+            <div class="product">
+                <img src="../img/OIeP.jpg" alt="សៀវភៅ Java">
+                <h3>សៀវភៅ Java</h3>
+                <p>- តម្លៃ: 60,000 រៀល</p>
+                <p>- មានលំហាត់ & គន្លឹះ</p>
+                <button class="buy-button">ទិញឥឡូវនេះ</button>
+            </div>
+            <div class="product">
+                <img src="../img/C++.jpg" alt="សៀវភៅ C++">
+                <h3>សៀវភៅ C++</h3>
+                <p>- តម្លៃ: 60,000 រៀល</p>
+                <p>- សម្រាប់អ្នកចាប់ផ្តើម និងមានការបង្រៀនលម្អិត</p>
+                <button class="buy-button">ទិញឥឡូវនេះ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT Section -->
+    <section id="about">
+        <h2 style="color: #007bff;">អំពីពួកយើង</h2>
+        <p style="font-size: 16px;">
+            យើងជាហាងលក់សៀវភៅនិងសម្ភារៈសិក្សាដែលផ្តល់សេវាកម្មប្រកបដោយគុណភាព។ បង្កើតឡើងក្នុងឆ្នាំ 2025 ដើម្បីជួយសិស្សានុសិស្សទូទាំងប្រទេស។
+        </p>
+        <ul>
+            <li>✔ ផ្គត់ផ្គង់សៀវភៅគ្រប់ប្រភេទ</li>
+            <li>✔ តម្លៃសមរម្យ</li>
+            <li>✔ សេវាកម្មដឹកជញ្ជូន</li>
+        </ul>
+    </section>
+
+    <!-- CONTACT Section -->
+    <section id="contact">
+        <h2 style="color: #007bff;">ទំនាក់ទំនង</h2>
+        <ul style="font-size: 16px;">
+            <li>📞 លេខទូរស័ព្ទ៖ 0964294915</li>
+            <li>📧 អ៊ីមែល៖ Phalla1914@gmail.com</li>
+            <li>📍 អាសយដ្ឋាន៖ ភ្នំពេញ, កម្ពុជា</li>
+            <li>🌐 Facebook: <a href="#">fb.com/bookshopkh</a></li>
+        </ul>
+
+        <form>
+            <label>ឈ្មោះ:</label>
+            <input type="text">
+
+            <label>អ៊ីមែល:</label>
+            <input type="email">
+
+            <label>សារ:</label>
+            <textarea rows="5"></textarea>
+
+            <button type="submit" class="buy-button">ផ្ញើសារ</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>រក្សាសិទ្ធិ &copy; 2025 ហាងលក់សៀវភៅ</p>
+    </footer>
+
+</body>
+</html>

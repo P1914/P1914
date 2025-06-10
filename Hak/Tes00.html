@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <title>ចូល Facebook ដើម្បីមើលឯកសារ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Battambang&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Battambang', sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #333;
+    }
+    #loginBtn {
+      background-color: #1877f2;
+      border: none;
+      padding: 12px 30px;
+      color: white;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #status {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    #fileList {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+    #fileList h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    #fileList ul {
+      list-style: none;
+      padding: 0;
+    }
+    #fileList ul li {
+      margin-bottom: 10px;
+    }
+    #fileList ul li a {
+      color: #1877f2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #fileList ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<button id="loginBtn">ចូលជាមួយ Facebook</button>
+<div id="status">សូមចុចប៊ូតុងខាងលើដើម្បីចូល Facebook</div>
+
+<div id="fileList">
+  <h3>ឯកសាររបស់អ្នក</h3>
+  <ul>
+    <li><a href="/files/private1.pdf" target="_blank">ឯកសារ PDF 1</a></li>
+    <li><a href="/files/private2.docx" target="_blank">ឯកសារ DOCX 2</a></li>
+  </ul>
+</div>
+
+<script>
+  // Replace with your actual Facebook App ID
+  const APP_ID = 'YOUR_FACEBOOK_APP_ID';
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : APP_ID,
+      cookie     : true,
+      xfbml      : false,
+      version    : 'v19.0'
+    });
+  };
+
+  (function(d, s, id){
+     let js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  document.getElementById('loginBtn').onclick = function() {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        FB.api('/me', function(user) {
+          document.getElementById('status').textContent = `ស្វាគមន៍, ${user.name}! អ្នកបានចូលជោគជ័យ។`;
+          document.getElementById('loginBtn').style.display = 'none';
+          document.getElementById('fileList').style.display = 'block';
+        });
+      } else {
+        document.getElementById('status').textContent = 'អ្នកបានលះបង់ការចូល។';
+      }
+    }, {scope: 'public_profile,email'});
+  };
+</script>
+
+</body>
+</html>

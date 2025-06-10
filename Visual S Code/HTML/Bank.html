@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bank Program - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff0000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #a70000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>បញ្ចូល...</h2>
+        <form id="login-form">
+            <input type="text" id="id-card" placeholder="Enter ID Card Number" required>
+            <button type="button" onclick="login()">ចូលប្រើប្រាស់</button>
+        </form>
+    </div>
+
+    <script>
+        function login() {
+            const idCard = document.getElementById('id-card').value;
+            // For simplicity, we'll use a hardcoded ID card number.
+            // In a real application, you would verify these credentials on the server.
+            if (idCard === '123456789') {
+                window.location.href = 'bank.html';
+            } else {
+                alert('Invalid ID Card Number.');
+            }
+        }
+    </script>
+</body>
+</html>
